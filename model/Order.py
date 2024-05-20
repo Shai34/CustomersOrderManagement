@@ -1,11 +1,12 @@
 from abc import ABC, abstractmethod
 from model import PaymentType
+from datetime import date
 
 
 class Order(ABC):
 
     @abstractmethod
-    def __init__(self, order_id, name, delivery_address, list_of_items, order_customer, payment_type: PaymentType, order_date):
+    def __init__(self, order_id, name, delivery_address, list_of_items, order_customer, payment_type: PaymentType, order_date: date):
         self.__order_id = order_id
         self.__name = name
         self.__delivery_address = delivery_address

@@ -6,6 +6,7 @@ from model.Customer import Customer
 from model.CustomerType import CustomerType
 from model.GiftTablecloth import GiftTablecloth
 from model. GiftFlowerpot import GiftFlowerpot
+from datetime import date
 
 
 if __name__ == '__main__':
@@ -39,14 +40,14 @@ if __name__ == '__main__':
     customer6 = Customer(6, "Michael", "Wilson", "michael.wilson@example.com", "202 Pine Street", CustomerType.REGULAR)
 
     # VIP orders
-    vip_order1 = VipOrder(1, "VIP Order 1", customer1.get_delivery_address, [item4, item13, item16], customer1, PaymentType.CREDIT_CARD, "2024-05-20")
-    vip_order2 = VipOrder(2, "VIP Order 2", customer2.get_delivery_address, [item3, item6, item14], customer2, PaymentType.CASH, "2024-05-21")
-    vip_order3 = VipOrder(3, "VIP Order 3", customer3.get_delivery_address, [item1], customer3, PaymentType.CHECK, "2024-05-22")
+    vip_order1 = VipOrder(1, "VIP Order 1", customer1.get_delivery_address, [item4, item13, item16], customer1, PaymentType.CREDIT_CARD,  date(2024, 5, 20))
+    vip_order2 = VipOrder(2, "VIP Order 2", customer2.get_delivery_address, [item3, item6, item14], customer2, PaymentType.CASH, date(2024, 5, 21))
+    vip_order3 = VipOrder(3, "VIP Order 3", customer3.get_delivery_address, [item1], customer3, PaymentType.CHECK, date(2024, 5, 22))
 
     # Regulars orders
-    regular_order1 = RegularOrder(4, "Regular Order 1", customer4.get_delivery_address, [item12, item11, item15, item10], customer4, PaymentType.CREDIT_CARD, "2024-05-20")
-    regular_order2 = RegularOrder(5, "Regular Order 2", customer5.get_delivery_address, [item2, item9], customer5, PaymentType.CASH, "2024-05-21")
-    regular_order3 = RegularOrder(6, "Regular Order 3", customer6.get_delivery_address, [item6, item13, item7, item5, item8], customer6, PaymentType.CHECK, "2024-05-22")
+    regular_order1 = RegularOrder(4, "Regular Order 1", customer4.get_delivery_address, [item12, item11, item15, item10], customer4, PaymentType.CREDIT_CARD, date(2024, 5, 23))
+    regular_order2 = RegularOrder(5, "Regular Order 2", customer5.get_delivery_address, [item2, item9], customer5, PaymentType.CASH, date(2024, 5, 24))
+    regular_order3 = RegularOrder(6, "Regular Order 3", customer6.get_delivery_address, [item6, item13, item7, item5, item8], customer6, PaymentType.CHECK, date(2024, 5, 25))
 
     # Gifts
     gift1 = GiftTablecloth()
@@ -87,3 +88,4 @@ if __name__ == '__main__':
     print("Test 6 - Error:")
     # Regular customer making VIP order
     vip_order4 = VipOrder(7, "VIP Order 4", customer4.get_delivery_address, [item1], customer4, PaymentType.CHECK, "2024-05-22")
+
